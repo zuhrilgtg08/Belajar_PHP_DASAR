@@ -34,7 +34,7 @@ if (isset($_POST["cari"])) {
 <body>
     <nav>
         <div class="logo">
-            <h4>Ahmad Zuhril</h4>
+            <h4>Dasboard</h4>
         </div>
 
         <ul>
