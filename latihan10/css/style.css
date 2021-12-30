@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&display=swap');
+
+*{
+    font-family: 'Nunito', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.bg-primary.mb-3{
+    margin-left: 20px;
+    border-radius: 5px;
+}
+
+button a:hover{
+    color: #eee;
+}
+
+table tr td button{
+    width:80px;
+}
+
+form .baris{
+        border: .1rem solid rgba(0, 0, 0, .1);
+        border-radius: .5rem;
+        padding: 4rem;
+}
+
+form .baris .bg-warning.mb-3{
+    width: 100px;
+}
