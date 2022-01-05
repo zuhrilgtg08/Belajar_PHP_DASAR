@@ -1,0 +1,12 @@
+session adalah sebuah mekanisme penyimpanan
+informasi ke dalam variable agar bisa digunakan di lebih dari satu halaman
+nilai satu variable hanya bisa di pake di halaman variable itu saja
+informasi disimpan di dalam server
+session sangat erat dengan cookie
+cokkie di simpen client (didalam browser)
+$_SESSION diurus dengan variabel super global
+session_start();
+session hanya berlaku dalam 1 sesi aja
+dimana 1 sesi itu sama dengan ketika browser kita berjalan
+jika berowser atau komputer kita di berhentikan
+maka 1 sesi itu berakhir
