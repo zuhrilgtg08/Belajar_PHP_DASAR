@@ -30,7 +30,7 @@ function tambah($data)
     $email = htmlspecialchars($data["email"]);
     $jurusan = htmlspecialchars($data["jurusan"]);
 
-    // upload gambar jalankan fuction upload gambar
+    // upload gambar jalankan function upload gambar
     $gambar = upload();
 
     if (!$gambar) {
