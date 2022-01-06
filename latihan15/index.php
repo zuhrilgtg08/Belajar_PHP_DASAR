@@ -58,16 +58,16 @@ if (isset($_POST["cari"])) {
         </div>
     </nav>
 
-    <a href="logout.php" class="btn btn-danger mt-3">Logout</a>
+    <a href="logout.php" class="btn btn-danger float-end m-3">Logout</a>
 
     <h1 class="text-center mt-2 text-uppercase">Daftar Mahasiswa</h1>
 
-    <button class="bg-primary mb-3"><a href="tambah.php">Tambah Data Mahasiswa</a></button>
+    <a href="tambah.php" class="btn btn-warning m-4">Tambah Data Mahasiswa</a>
 
     <!-- cari form data -->
-    <form action="" method="POST" class="form-group">
-        <input type="search" name="keyword" class="form-control-sm" autofocus placeholder="Cari Mahasiswa..." autocomplete="off">
-        <button type="submit" name="cari" class="bg-primary mb-3 text-white">Cari Data</button>
+    <form action="" method="POST" class="form-group m-3">
+        <input type="search" name="keyword" class="form-control" autofocus placeholder="Cari Mahasiswa..." autocomplete="off">
+        <button type="submit" name="cari" class="bg-primary rounded mt-3" style="width: 100px; color:#fff;">Cari Data</button>
     </form>
     <br><br>
 
