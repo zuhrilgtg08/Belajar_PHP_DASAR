@@ -25,10 +25,10 @@ if(isset($_COOKIE['id']) && isset($_COOKIE['key'])){
 
 }
 
-if (isset($_SESSION["login"])) {
-    header("Location: index.php");
-    exit;
-}
+// if (isset($_SESSION["login"])) {
+//     header("Location: index.php");
+//     exit;
+// }
 
 // jika tombol submit sudah ditekan atau belum
 if (isset($_POST["login"])) {
@@ -49,8 +49,8 @@ if (isset($_POST["login"])) {
             // cek remember me
             if(isset($_POST['remember'])){
                 // buat cookienya
-                setcookie('id', hash('sha256', $row['id']), time());
-                setcookie('key', hash('sha256', $row['username']), time());
+                setcookie('id', hash('sha256', $row['id']), time() + 60);
+                setcookie('key', hash('sha256', $row['username']), time() + 60);
             }
             header("Location: index.php");
             exit;
@@ -108,7 +108,6 @@ if (isset($_POST["login"])) {
 
         <div class="card-footer">
             <button type="submit" name="login" class="btn btn-primary" style="width: 100px;">Login</button>
-            <a href="registrasi.php" class="btn btn-success">Registrasi User</a>
             </form>
         </div>
     </div>
