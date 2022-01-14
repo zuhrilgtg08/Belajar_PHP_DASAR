@@ -64,11 +64,22 @@ if (isset($_POST["cari"])) {
     <link href="css/main.css" rel="stylesheet" />
 
     <style>
-        .card{
+        .card {
             width: 10rem;
             float: right;
         }
+
+        .loader {
+            width: 150px;
+            position: absolute;
+            top: 180px;
+            left: 240px;
+            z-index: -1;
+            display: none;
+        }
     </style>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -101,8 +112,11 @@ if (isset($_POST["cari"])) {
 
     <!-- cari form data -->
     <form action="" method="POST" class="form-group m-3">
-        <input type="search" name="keyword" class="form-control" autofocus placeholder="Cari Mahasiswa..." autocomplete="off" id="key">
-        <button type="submit" name="cari" class="bg-primary rounded mt-3" style="width: 100px; color:#fff;" id="search">Cari Data</button>
+        <input type="search" name="keyword" class="form-control" autofocus placeholder="Cari Mahasiswa..." autocomplete="off" id="key" style="width:250px;">
+        <button type="submit" name="cari" class="bg-primary rounded mt-3" style="width: 100px; color:#fff;" id="tombol">Cari Data</button>
+
+        <!-- img loader gift -->
+        <img src="images/load.gif" alt="loading" class="loader">
     </form>
 
 
@@ -163,8 +177,9 @@ if (isset($_POST["cari"])) {
 
 
     <!-- script.js -->
-    <script src="js/script.js"></script>
+
     <script src="js/ajax.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

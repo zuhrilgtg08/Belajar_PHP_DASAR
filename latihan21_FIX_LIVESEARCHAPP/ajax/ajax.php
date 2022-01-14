@@ -1,4 +1,6 @@
 <?php
+// sleep(1);
+usleep(1000000);
 require '../function.php';
 
 $key = $_GET["key"];

@@ -15,6 +15,37 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
 if (isset($_POST["cari"])) {
     $mahasiswa = cari($_POST["keyword"]);
 }
+
+                // accending dan descending
+                // ASC DAN DESC adalah sebuah urutan mulai dari kecil ke besar begitu juga sebaliknya
+                //ambil data dari database
+
+                // config pagination
+                $jumlahDataPerhalaman = 10;
+                // $result = mysqli_query($conn, "SELECT * FROM mahasiswa");
+                // $jumlahData = mysqli_num_rows($result);
+                $jumlahData = count(query("SELECT * FROM mahasiswa"));
+                $jumlahHalaman = ceil($jumlahData / $jumlahDataPerhalaman);
+                $pageAktif = (isset($_GET["page"])) ? $_GET["page"] : 1;
+                $awalData = ($jumlahDataPerhalaman * $pageAktif) - $jumlahDataPerhalaman;
+
+                // if(isset($_GET["page"])){
+                //     $pageAktif = $_GET["page"];
+                // }else{
+                //     $pageAktif = 1;
+                // }
+
+
+                // pageAktif = 5; awalData = 0
+                // pageAktif = 5; awalData = 5
+
+
+
+                $mahasiswa = query("SELECT * FROM mahasiswa LIMIT $awalData, $jumlahDataPerhalaman");
+// fungsi round() membulatkan bilangan pecahan ke bilangan desimal terdekat
+// sedangkan floor() membulatkan bilangan pecahan ke bawah
+// lalu ceil() membualtkan bialangan ke atas
+// jika tombol cari ditekan
 ?>
 
 
@@ -43,6 +74,15 @@ if (isset($_POST["cari"])) {
             left: 240px;
             z-index: -1;
             display: none;
+        }
+
+        .card{
+            width:10rem;
+            float: right;
+        }
+
+        .card a:hover{
+            color: red;
         }
     </style>
 </head>
@@ -115,6 +155,25 @@ if (isset($_POST["cari"])) {
                     <?php $i++; ?>
                 <?php endforeach; ?>
             </table>
+        </div>
+        <div class="card bg-primary m-3">
+            <div class="card-body">
+                <?php if ($pageAktif > 1) : ?>
+                    <a href="?page=<?= $pageAktif - 1; ?>" class="fs-5">&laquo;</a>
+                <?php endif; ?>
+
+                <?php for ($i = 1; $i <= $jumlahHalaman; $i++) : ?>
+                    <?php if ($i == $pageAktif) : ?>
+                        <a href="?page=<?= $i; ?>" class="btn btn-warning text-danger"><?= $i; ?></a>
+                    <?php else : ?>
+                        <a href="?page=<?= $i; ?>"><?= $i; ?></a>
+                    <?php endif; ?>
+                <?php endfor; ?>
+
+                <?php if ($pageAktif < $jumlahHalaman) : ?>
+                    <a href="?page=<?= $pageAktif + 1; ?>" class="fs-5">&raquo;</a>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
 
