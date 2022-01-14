@@ -5,7 +5,7 @@ sudah berubah menjadi istilah
 Asynchronous bisa diartikan tidak sinkron
 konsep nya : 
 kita merequest ke server secara Asynchronous
-unutk menggunakan teknologi ajax ini atau
+untuk menggunakan teknologi ajax ini atau
 cara penggunaanya kita memerlukan sebuah objek
 yang ada di dalam browser disebut dengan 
 XMLHttpRequest()

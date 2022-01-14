@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
 // if (!isset($_SESSION["login"])) {
 //     header("Location: login.php");
 //     exit;
@@ -59,17 +63,10 @@ if (isset($_POST["cari"])) {
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
 
-    
-    <!-- <script src="js/ajax.js"></script> -->
     <style>
-        .card {
+        .card{
             width: 10rem;
-            /* float: right; */
-            text-decoration: none;
-        }
-
-        .card a:hover{
-            color: red;
+            float: right;
         }
     </style>
 </head>
@@ -110,67 +107,63 @@ if (isset($_POST["cari"])) {
 
 
 
-<div class="container" id="container">
-    <div class="table-responsive mt-3">
-        <table class="table table-striped text-center">
-            <tr class="table table-dark">
-                <th>No.</th>
-                <th>Aksi</th>
-                <th>Gambar</th>
-                <th>NIS</th>
-                <th>Nama</th>
-                <th>Email</th>
-                <th>Jurusan</th>
-            </tr>
-
-            <?php $i = 1; ?>
-            <?php foreach ($mahasiswa as $mhs) : ?>
-                <tr>
-                    <td><?= $i; ?></td>
-                    <td>
-                        <button class="bg-success"><a href="ubah.php?id=<?= $mhs["id"]; ?>">Ubah</a> </button>
-                        <button class="bg-danger"><a href="hapus.php?id=<?= $mhs["id"]; ?>" onclick="return confirm('Yakin ingin dihapus');">Hapus</a></button>
-                    </td>
-                    <td><img src="images/<?= $mhs["gambar"]; ?>" width="50" alt=""></td>
-                    <td><?= $mhs["nis"]; ?></td>
-                    <td><?= $mhs["nama"]; ?></td>
-                    <td><?= $mhs["email"]; ?></td>
-                    <td><?= $mhs["jurusan"]; ?></td>
+    <div id="container">
+        <div class="table-responsive mt-3">
+            <table class="table table-striped text-center">
+                <tr class="table table-dark">
+                    <th>No.</th>
+                    <th>Aksi</th>
+                    <th>Gambar</th>
+                    <th>NIS</th>
+                    <th>Nama</th>
+                    <th>Email</th>
+                    <th>Jurusan</th>
                 </tr>
-                <?php $i++; ?>
-            <?php endforeach; ?>
-        </table>
-    </div>
-</div>
 
-    <div class="card bg-primary m-3">
-        <div class="card-body">
-            <?php if ($pageAktif > 1) : ?>
-                <a href="?page=<?= $pageAktif - 1; ?>" class="fs-5">&laquo;</a>
-            <?php endif; ?>
-    
-            <?php for ($i = 1; $i <= $jumlahHalaman; $i++) : ?>
-                <?php if ($i == $pageAktif) : ?>
-                    <a href="?page=<?= $i; ?>" class="btn btn-warning text-danger"><?= $i; ?></a>
-                <?php else : ?>
-                    <a href="?page=<?= $i; ?>"><?= $i; ?></a>
+                <?php $i = 1; ?>
+                <?php foreach ($mahasiswa as $mhs) : ?>
+                    <tr>
+                        <td><?= $i; ?></td>
+                        <td>
+                            <button class="bg-success"><a href="ubah.php?id=<?= $mhs["id"]; ?>">Ubah</a> </button>
+                            <button class="bg-danger"><a href="hapus.php?id=<?= $mhs["id"]; ?>" onclick="return confirm('Yakin ingin dihapus');">Hapus</a></button>
+                        </td>
+                        <td><img src="images/<?= $mhs["gambar"]; ?>" width="50" alt=""></td>
+                        <td><?= $mhs["nis"]; ?></td>
+                        <td><?= $mhs["nama"]; ?></td>
+                        <td><?= $mhs["email"]; ?></td>
+                        <td><?= $mhs["jurusan"]; ?></td>
+                    </tr>
+                    <?php $i++; ?>
+                <?php endforeach; ?>
+            </table>
+        </div>
+        <!-- tombol pagination -->
+        <div class="card bg-primary m-3">
+            <div class="card-body">
+                <?php if ($pageAktif > 1) : ?>
+                    <a href="?page=<?= $pageAktif - 1; ?>" class="fs-5">&laquo;</a>
                 <?php endif; ?>
-            <?php endfor; ?>
-    
-            <?php if ($pageAktif < $jumlahHalaman) : ?>
-                <a href="?page=<?= $pageAktif + 1; ?>" class="fs-5">&raquo;</a>
-            <?php endif; ?>
+
+                <?php for ($i = 1; $i <= $jumlahHalaman; $i++) : ?>
+                    <?php if ($i == $pageAktif) : ?>
+                        <a href="?page=<?= $i; ?>" class="btn btn-warning text-danger"><?= $i; ?></a>
+                    <?php else : ?>
+                        <a href="?page=<?= $i; ?>"><?= $i; ?></a>
+                    <?php endif; ?>
+                <?php endfor; ?>
+
+                <?php if ($pageAktif < $jumlahHalaman) : ?>
+                    <a href="?page=<?= $pageAktif + 1; ?>" class="fs-5">&raquo;</a>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
 
 
-    <!-- tombol pagination -->
-    <script src="js/script.js"></script>
+
     <!-- script.js -->
-    <!-- <script src="js/script.js"></script> -->
-    <!-- <script>
-        
-    </script> -->
+    <script src="js/script.js"></script>
     <script src="js/ajax.js"></script>
 </body>
 
