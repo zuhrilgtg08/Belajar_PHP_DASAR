@@ -1,0 +1,20 @@
+fitur bawaan browser
+library PHP 
+fpdf
+mpdf
+dompdf
+
+cara 1 fitur bawaan browser
+klik kanan lalu print 
+pilih extensi file pdf
+atau menggunakan shortcut 
+ctrl + p
+menghilangkan komponen yang dibutuhkan saat print
+sintaks css
+@media print{
+    .logout, .tombol, .tambah, .form-cari{
+        display: none;
+    }
+}
+ketika media print dijalankan
+tolong hilangkan tombol logout
