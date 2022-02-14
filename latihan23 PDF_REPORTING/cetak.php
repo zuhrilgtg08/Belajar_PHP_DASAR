@@ -26,8 +26,8 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
 		foreach($mahasiswa as $mhs){
 			$html .= '<tr>
 				<td>'. $i++ .'</td>
-				<td><img src="images/'. $mhs["gambar"] .'" width="50"></td>
-				<td>'. $mhs["nis"] . '</td>
+				<td><img src="images/'. $mhs["gambar"] . '" width="50"></td>
+				<td>' . $mhs["nis"] . '</td>
 				<td>' . $mhs["nama"] . '</td>
 				<td>' . $mhs["email"] . '</td>
 				<td>' . $mhs["jurusan"] . '</td>

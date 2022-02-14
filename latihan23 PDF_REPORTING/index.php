@@ -136,8 +136,8 @@ $mahasiswa = query("SELECT * FROM mahasiswa LIMIT $awalData, $jumlahDataPerhalam
                     <th>No.</th>
                     <th>Aksi</th>
                     <th>Gambar</th>
-                    <th>NIS</th>
                     <th>Nama</th>
+                    <th>NIS</th>
                     <th>Email</th>
                     <th>Jurusan</th>
                 </tr>
@@ -151,8 +151,8 @@ $mahasiswa = query("SELECT * FROM mahasiswa LIMIT $awalData, $jumlahDataPerhalam
                             <button class="bg-danger"><a href="hapus.php?id=<?= $mhs["id"]; ?>" onclick="return confirm('Yakin ingin dihapus');">Hapus</a></button>
                         </td>
                         <td><img src="images/<?= $mhs["gambar"]; ?>" width="50" alt=""></td>
-                        <td><?= $mhs["nis"]; ?></td>
                         <td><?= $mhs["nama"]; ?></td>
+                        <td><?= $mhs["nis"]; ?></td>
                         <td><?= $mhs["email"]; ?></td>
                         <td><?= $mhs["jurusan"]; ?></td>
                     </tr>
