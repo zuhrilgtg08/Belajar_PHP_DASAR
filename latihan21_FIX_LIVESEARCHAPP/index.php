@@ -1,13 +1,11 @@
 <?php
 session_start();
-if (isset($_SESSION["login"])) {
+
+if (!isset($_SESSION["login"])) {
     header("Location: login.php");
     exit;
 }
-// if (!isset($_SESSION["login"])) {
-//     header("Location: login.php");
-//     exit;
-// }
+
 //mengkoneksikan dengan database
 require 'function.php';
 // accending dan descending

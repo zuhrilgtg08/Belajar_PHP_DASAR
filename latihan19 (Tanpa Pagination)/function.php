@@ -17,9 +17,6 @@ function query($query)
     return $rows;
 }
 
-
-
-
 // tambah data
 function tambah($data)
 {
@@ -84,7 +81,7 @@ function upload()
     }
 
 
-    // geberate nama gambar baru
+    // generate nama gambar baru
     $namaFilebaru = uniqid();
     $namaFilebaru .= '.';
     $namaFilebaru .= $extensiGambar;

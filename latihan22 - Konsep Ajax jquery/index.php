@@ -1,9 +1,9 @@
 <?php
 session_start();
-// if (!isset($_SESSION["login"])) {
-//     header("Location: login.php");
-//     exit;
-// }
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
 //mengkoneksikan dengan database
 require 'function.php';
 // accending dan descending
@@ -16,32 +16,30 @@ if (isset($_POST["cari"])) {
     $mahasiswa = cari($_POST["keyword"]);
 }
 
-                // accending dan descending
-                // ASC DAN DESC adalah sebuah urutan mulai dari kecil ke besar begitu juga sebaliknya
-                //ambil data dari database
+// accending dan descending
+// ASC DAN DESC adalah sebuah urutan mulai dari kecil ke besar begitu juga sebaliknya
+//ambil data dari database
 
-                // config pagination
-                $jumlahDataPerhalaman = 10;
-                // $result = mysqli_query($conn, "SELECT * FROM mahasiswa");
-                // $jumlahData = mysqli_num_rows($result);
-                $jumlahData = count(query("SELECT * FROM mahasiswa"));
-                $jumlahHalaman = ceil($jumlahData / $jumlahDataPerhalaman);
-                $pageAktif = (isset($_GET["page"])) ? $_GET["page"] : 1;
-                $awalData = ($jumlahDataPerhalaman * $pageAktif) - $jumlahDataPerhalaman;
+// config pagination
+$jumlahDataPerhalaman = 10;
+// $result = mysqli_query($conn, "SELECT * FROM mahasiswa");
+// $jumlahData = mysqli_num_rows($result);
+$jumlahData = count(query("SELECT * FROM mahasiswa"));
+$jumlahHalaman = ceil($jumlahData / $jumlahDataPerhalaman);
+$pageAktif = (isset($_GET["page"])) ? $_GET["page"] : 1;
+$awalData = ($jumlahDataPerhalaman * $pageAktif) - $jumlahDataPerhalaman;
 
-                // if(isset($_GET["page"])){
-                //     $pageAktif = $_GET["page"];
-                // }else{
-                //     $pageAktif = 1;
-                // }
-
-
-                // pageAktif = 5; awalData = 0
-                // pageAktif = 5; awalData = 5
+// if(isset($_GET["page"])){
+//     $pageAktif = $_GET["page"];
+// }else{
+//     $pageAktif = 1;
+// }
 
 
+// pageAktif = 5; awalData = 0
+// pageAktif = 5; awalData = 5
 
-                $mahasiswa = query("SELECT * FROM mahasiswa LIMIT $awalData, $jumlahDataPerhalaman");
+$mahasiswa = query("SELECT * FROM mahasiswa LIMIT $awalData, $jumlahDataPerhalaman");
 // fungsi round() membulatkan bilangan pecahan ke bilangan desimal terdekat
 // sedangkan floor() membulatkan bilangan pecahan ke bawah
 // lalu ceil() membualtkan bialangan ke atas

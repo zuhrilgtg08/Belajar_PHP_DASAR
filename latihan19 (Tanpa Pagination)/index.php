@@ -1,9 +1,10 @@
 <?php
 session_start();
-// if (!isset($_SESSION["login"])) {
-//     header("Location: login.php");
-//     exit;
-// }
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
+
 //mengkoneksikan dengan database
 require 'function.php';
 // accending dan descending
@@ -28,8 +29,6 @@ $awalData = ($jumlahDataPerhalaman * $pageAktif) - $jumlahDataPerhalaman;
 
 // pageAktif = 5; awalData = 0
 // pageAktif = 5; awalData = 5
-
-
 
 $mahasiswa = query("SELECT * FROM mahasiswa LIMIT $awalData, $jumlahDataPerhalaman");
 // fungsi round() membulatkan bilangan pecahan ke bilangan desimal terdekat

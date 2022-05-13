@@ -17,9 +17,6 @@ function query($query)
     return $rows;
 }
 
-
-
-
 // tambah data
 function tambah($data)
 {

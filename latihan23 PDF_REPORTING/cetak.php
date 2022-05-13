@@ -22,7 +22,8 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
                     <th>Email</th>
                     <th>Jurusan</th>
                 </tr>';
-
+		
+		$i = 1;
 		foreach($mahasiswa as $mhs){
 			$html .= '<tr>
 				<td>'. $i++ .'</td>

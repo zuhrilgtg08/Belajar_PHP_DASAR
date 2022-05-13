@@ -49,7 +49,7 @@ if (isset($_POST["login"])) {
             // cek remember me
             if(isset($_POST['remember'])){
                 // buat cookienya
-                setcookie('id', hash('sha256', $row['id']), time() + 60);
+                setcookie('id', $row['id'], time() + 60);
                 setcookie('key', hash('sha256', $row['username']), time() + 60);
             }
             header("Location: index.php");

@@ -84,7 +84,7 @@ function upload()
     }
 
 
-    // geberate nama gambar baru
+    // generate nama gambar baru
     $namaFilebaru = uniqid();
     $namaFilebaru .= '.';
     $namaFilebaru .= $extensiGambar;

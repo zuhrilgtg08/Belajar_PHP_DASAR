@@ -1,11 +1,5 @@
 {
     "require": {
-        "name": "mpdf/mpdf",
-	"version": "v6.1.2",
-	"source": {
-    		"type": "git",
-    		"url": "https://github.com/mpdf/mpdf.git",
-    		"reference": "da078bc2669d3f98553ac41f920ead4c17c951ad"
-	},
+        "mpdf/mpdf": "^7.0"
     }
 }

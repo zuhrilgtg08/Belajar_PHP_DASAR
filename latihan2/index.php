@@ -1,7 +1,7 @@
 <?php
 // komentar dalam php
 // sintaks php
-// stardard output (unutk mencetak sesuatu pada layar)
+// stardard output (untuk mencetak sesuatu pada layar)
 // echo, print, print_r, var_dump
 
 
